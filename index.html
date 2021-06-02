@@ -463,10 +463,21 @@ https://templatemo.com/tm-543-breezed
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
-  new Crate({
-    server: '829053100597051392', // Enchanted Sniper
-    channel: '841680909300269056' // #‖📢-enchanted-snipes
+  const button = new Crate({
+    server: '829053100597051392',
+    channel: '841680909300269056',
+    glyph: ['https://thecatapi.com/api/images/get?format=src&type=gif&' + Date.now(), '100%']
   })
+  
+  // Random cat pictures every 1.5s
+  setInterval(() => {
+    button.options.glyph = ['https://thecatapi.com/api/images/get?format=src&type=gif&' + Date.now(), '100%']
+    
+    button.notify({
+      content: 'Background updated',
+      timeout: 1000
+    })
+  }, 1500)
 </script>
   </body>
 </html>
